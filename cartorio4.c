@@ -96,11 +96,9 @@ int deletar()
 {
 	char cpf[40];
 					
-	printf("Digite o cpf do usuario a ser deletado: ");
-	scanf("%s",cpf);
-	
-	remove(cpf);
-	
+	printf("Digite o cpf do usuario a ser deletado:\n");
+	scanf("%s", cpf);
+		
 	FILE *file;
 	file = fopen(cpf, "r");
 
@@ -108,6 +106,14 @@ int deletar()
 	{
 		printf("Cpf não localizado!\n");
 		system("pause");
+	}
+	else
+	{
+		fclose(file);
+		remove(cpf);
+		printf("Usuário deletado com sucesso!\n");
+		system("pause");
+		
 	}
 	
 }
